@@ -1,4 +1,4 @@
-NewSense – AI-Based News Article Classification System
+**NewSense – AI-Based News Article Classification System**
 
 Description:
 
