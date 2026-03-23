@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 170 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 220 70% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(220 70% 50%), hsl(250 60% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(170 60% 45%), hsl(200 70% 50%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 20% 97%));
+    --shadow-card: 0 4px 24px -4px hsl(220 70% 50% / 0.1);
+    --shadow-card-hover: 0 8px 32px -4px hsl(220 70% 50% / 0.2);
+    --shadow-glow: 0 0 40px hsl(220 70% 50% / 0.15);
+
+    /* Category colors */
+    --cat-business: 220 70% 50%;
+    --cat-entertainment: 280 60% 55%;
+    --cat-health: 350 70% 55%;
+    --cat-science: 200 70% 50%;
+    --cat-sports: 140 60% 40%;
+    --cat-technology: 250 60% 55%;
+    --cat-politics: 30 70% 50%;
+    --cat-world: 170 60% 45%;
+    --cat-environment: 140 50% 45%;
+    --cat-education: 340 60% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-primary-gradient {
+    background: var(--gradient-primary);
+    @apply text-primary-foreground rounded-lg font-medium transition-all duration-300;
+  }
+
+  .btn-primary-gradient:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+
+  .card-glass {
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+    @apply rounded-xl border border-border/50 backdrop-blur-sm;
+  }
+
+  .card-glass:hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .category-badge {
+    @apply px-3 py-1.5 rounded-full text-sm font-medium border transition-all duration-200;
+  }
+
+  .flashcard-container {
+    perspective: 1000px;
+  }
+
+  .flashcard-inner {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .flashcard-inner.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-front,
+  .flashcard-back {
+    backface-visibility: hidden;
+  }
+
+  .flashcard-back {
+    transform: rotateY(180deg);
+  }
+}
